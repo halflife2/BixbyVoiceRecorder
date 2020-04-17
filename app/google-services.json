@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "277633371635",
+    "firebase_url": "https://bixbyvoicerecorder-8e0be.firebaseio.com",
+    "project_id": "bixbyvoicerecorder-8e0be",
+    "storage_bucket": "bixbyvoicerecorder-8e0be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:277633371635:android:56dc5587f5087a5c815686",
+        "android_client_info": {
+          "package_name": "com.example.bixbyvoicerecorder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "277633371635-cqvgetmelgn93i8klnug62p0bj8s7pol.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bixbyvoicerecorder",
+            "certificate_hash": "98345ecb61e8fcbb3476dcd083c06051ff1647bd"
+          }
+        },
+        {
+          "client_id": "277633371635-meoh8vt6tdf4v6omqu5ajnkrr5g6u6dc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaOMXYP0Rs3PgC3T_glKvnxXA73Chh8kQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "277633371635-meoh8vt6tdf4v6omqu5ajnkrr5g6u6dc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
