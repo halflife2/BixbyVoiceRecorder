@@ -16,18 +16,17 @@ import java.util.List;
 
 
 public class fragment_main2 extends Fragment {
-    fragment_main fm = new fragment_main();
-
      List<String> list = new ArrayList<>();
+     List<String> bixbyUtter = MainActivity.BixbyUtter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view2 = inflater.inflate(R.layout.fragment_main_2, container, false);
 
         ListView listView = view2.findViewById(R.id.listview);
-        System.out.println("fmtotalcount"+fm.totalcount);
+        System.out.println("fmtotalcount"+MainActivity.totalcount);
 
-        for (int i = 0; i < 3; i++) {
-            list.add(i + "번 + ");
+        for (int i = 0; i < MainActivity.totalcount; i++) {
+            list.add(bixbyUtter.get(i) + "번 + ");
         }
 
         // 어댑터 생성
