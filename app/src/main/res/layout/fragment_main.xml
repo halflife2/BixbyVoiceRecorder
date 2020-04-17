@@ -7,22 +7,10 @@
     android:layout_height="match_parent"
     tools:context=".PlaceholderFragment">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginRight="52dp"
-        android:text="불러오기"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
     <TextView
         android:id="@+id/textView"
-        android:layout_width="98dp"
-        android:layout_height="53dp"
+        android:layout_width="93dp"
+        android:layout_height="69dp"
         android:layout_marginTop="120dp"
         android:gravity="center_horizontal|bottom|top"
         android:text="-/-"
@@ -58,6 +46,7 @@
         android:layout_marginLeft="36dp"
         android:layout_marginBottom="84dp"
         android:src="@drawable/record"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
@@ -70,6 +59,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginBottom="84dp"
+        android:background="@android:color/transparent"
         android:src="@drawable/stop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,8 +72,9 @@
         android:layout_height="86dp"
 
         android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginBottom="84dp"
+        android:background="@android:color/transparent"
         android:src="@drawable/play"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/downloadButton"
@@ -93,36 +84,51 @@
 
     <ImageButton
         android:id="@+id/backbutton"
-        android:layout_width="69dp"
-        android:layout_height="53dp"
+        android:layout_width="79dp"
+        android:layout_height="67dp"
         android:layout_marginStart="64dp"
         android:layout_marginLeft="64dp"
         android:layout_marginTop="120dp"
+        android:background="@android:color/transparent"
         android:src="@drawable/left_arrow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/nextbutton"
-        android:layout_width="69dp"
-        android:layout_height="53dp"
+        android:layout_width="71dp"
+        android:layout_height="69dp"
         android:layout_marginTop="120dp"
         android:layout_marginEnd="64dp"
         android:layout_marginRight="64dp"
+        android:background="@android:color/transparent"
         android:src="@drawable/right_arrow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/downloadButton"
+        android:id="@+id/uploadButton"
         android:layout_width="102dp"
         android:layout_height="86dp"
         android:layout_marginEnd="28dp"
         android:layout_marginRight="28dp"
         android:layout_marginBottom="84dp"
-        android:src="@drawable/download"
+        android:src="@drawable/upload"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/downloadButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginRight="68dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/download"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
