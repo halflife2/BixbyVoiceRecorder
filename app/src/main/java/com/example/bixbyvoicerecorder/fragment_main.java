@@ -58,14 +58,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class fragment_main extends Fragment {
     public ArrayList<String> BixbyUtter = new ArrayList<>();
-    public ArrayList<Boolean> Recordcheck = new ArrayList<>();
-    private TextView tv0;
-    private TextView textView;
+    public ArrayList<String> Recordcheck = new ArrayList<>();
+    public TextView tv0;
+    public TextView textView;
     private Button button;
     private Button button2;
     private ImageButton backbutton;
     private ImageButton nextbutton;
     private ImageButton downloadButton;
+    private ImageButton uploadbutton;
     private ImageButton playButton;
     private ImageButton stopButton;
     private ImageButton recordButton;
@@ -87,31 +88,24 @@ public class fragment_main extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        fragment_main2 fm2 = new fragment_main2();
         View view = inflater.inflate(R.layout.fragment_main, container, false);
-
         tv0 = view.findViewById(R.id.tv0);
         textView = view.findViewById(R.id.textView);
-        button = view.findViewById(R.id.button);
+//        button = view.findViewById(R.id.button);
 
         backbutton = view.findViewById(R.id.backbutton);
         nextbutton = view.findViewById(R.id.nextbutton);
+        uploadbutton = view.findViewById(R.id.uploadButton);
         downloadButton = view.findViewById(R.id.downloadButton);
         playButton = view.findViewById(R.id.playButton);
         stopButton = view.findViewById(R.id.stopButton);
         recordButton = view.findViewById(R.id.recordButton);
         stopButton.setVisibility(View.INVISIBLE);
-
-//        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
-//        StrictMode.setVmPolicy(builder.build());
-//        if(ActivityCompat.checkSelfPermission(
-//                this, Manifest.permission.RECORD_AUDIO) !=
-//                PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(
-//                    this, new String[]{Manifest.permission.RECORD_AUDIO},
-//                    REQUEST_RECORD_AUDIO_PERMISSION);
-//        }
         FileDown();
-        button.setOnClickListener(new View.OnClickListener() { //불러오기 버튼
+
+
+        downloadButton.setOnClickListener(new View.OnClickListener() { //불러오기 버튼
             int readstate =0;
             public void onClick(View v){
                 if(readstate==0){
@@ -131,17 +125,18 @@ public class fragment_main extends Fragment {
             }
         });
 
-//        button2.setOnClickListener(new View.OnClickListener() { //저장하기 버튼
-//            @RequiresApi(api = Build.VERSION_CODES.O)
-//            public void onClick(View v){
-//                try {
-//                    CompressedFile();
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//                FileUpload();
-//            }
-//        });
+        uploadbutton.setOnClickListener(new View.OnClickListener() { //저장하기 버튼
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            public void onClick(View v){
+                try {
+                    CompressedFile();
+                    FileUpload();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
 
         backbutton.setOnClickListener(v -> {
             if(presentcount>1){
@@ -260,15 +255,22 @@ public class fragment_main extends Fragment {
 
     public void ReadFileContent() throws IOException {
         String line = null;
+        System.out.println("위치1");
+        System.out.println("위치"+getActivity().getExternalCacheDir());
         String utterFileName = getActivity().getExternalCacheDir().getAbsolutePath() +"/" + Save_folder +"/" + Down_File_Name  + Down_File_extend;
 
         try {
             BufferedReader buff = new BufferedReader((new InputStreamReader(new FileInputStream(String.valueOf(utterFileName)), "euc-kr")));
             while ((line = buff.readLine()) != null) {
                 BixbyUtter.add(line);
-                Recordcheck.add(Boolean.FALSE);
-                System.out.println(Recordcheck);
-                totalcount ++;
+                Recordcheck.add("FALSE");
+                System.out.println("Recordcheck"+Recordcheck);
+                totalcount +=1;
+                System.out.println("totalcountfm"+totalcount);
+            }
+            if((line = buff.readLine()) != null){
+
+
             }
         } catch (FileNotFoundException e ) {
 
@@ -419,7 +421,7 @@ public class fragment_main extends Fragment {
         mediaRecorder.start();
         recordButton.setVisibility(View.INVISIBLE);
         stopButton.setVisibility(View.VISIBLE);
-        Recordcheck.set(presentcount,Boolean.TRUE);
+        Recordcheck.set(presentcount,"TRUE");
     }
     private void stopRecording(){
         if(mediaRecorder != null){
