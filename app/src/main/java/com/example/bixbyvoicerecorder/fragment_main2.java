@@ -24,8 +24,6 @@ public class fragment_main2 extends Fragment {
         View view2 = inflater.inflate(R.layout.fragment_main_2, container, false);
 
         ListView listView = view2.findViewById(R.id.listview);
-        System.out.println("fmtotalcount"+fm.totalcount);
-
         for (int i = 0; i < 3; i++) {
             list.add(i + "번 + ");
         }

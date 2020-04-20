@@ -58,11 +58,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class fragment_main extends Fragment {
     public ArrayList<String> BixbyUtter = new ArrayList<>();
-    public ArrayList<String> Recordcheck = new ArrayList<>();
     public TextView tv0;
     public TextView textView;
-    private Button button;
-    private Button button2;
     private ImageButton backbutton;
     private ImageButton nextbutton;
     private ImageButton downloadButton;
@@ -78,7 +75,7 @@ public class fragment_main extends Fragment {
     String Down_File_Name = "readfile";
     String Down_File_extend = ".txt";
     String Save_folder = Down_File_Name;
-    String UpLoad_File_extend = ".3gp";
+    String UpLoad_File_extend = ".wav";
     public static final String BASE_URL = "http://121.162.235.155:3000";
     String Down_URL = "files/downloadfile"; //서버 위치
     String Save_Path;
@@ -88,12 +85,9 @@ public class fragment_main extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        fragment_main2 fm2 = new fragment_main2();
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         tv0 = view.findViewById(R.id.tv0);
         textView = view.findViewById(R.id.textView);
-//        button = view.findViewById(R.id.button);
-
         backbutton = view.findViewById(R.id.backbutton);
         nextbutton = view.findViewById(R.id.nextbutton);
         uploadbutton = view.findViewById(R.id.uploadButton);
@@ -103,7 +97,6 @@ public class fragment_main extends Fragment {
         recordButton = view.findViewById(R.id.recordButton);
         stopButton.setVisibility(View.INVISIBLE);
         FileDown();
-
 
         downloadButton.setOnClickListener(new View.OnClickListener() { //불러오기 버튼
             int readstate =0;
@@ -263,8 +256,6 @@ public class fragment_main extends Fragment {
             BufferedReader buff = new BufferedReader((new InputStreamReader(new FileInputStream(String.valueOf(utterFileName)), "euc-kr")));
             while ((line = buff.readLine()) != null) {
                 BixbyUtter.add(line);
-                Recordcheck.add("FALSE");
-                System.out.println("Recordcheck"+Recordcheck);
                 totalcount +=1;
                 System.out.println("totalcountfm"+totalcount);
             }
@@ -421,7 +412,6 @@ public class fragment_main extends Fragment {
         mediaRecorder.start();
         recordButton.setVisibility(View.INVISIBLE);
         stopButton.setVisibility(View.VISIBLE);
-        Recordcheck.set(presentcount,"TRUE");
     }
     private void stopRecording(){
         if(mediaRecorder != null){
